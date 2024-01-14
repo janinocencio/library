@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Poppins&display=swap');
+
+:root {
+    --color-1: #f6e5e5;
+    --color-2: #e6b2c6;
+    --color-3: #774181;
+    --color-4: #352961;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Mukta", sans-serif;
+}
+
+header {
+    height: 10svh;
+    background: var(--color-1);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header > p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+header > a button {
+    font-size: 1.4rem;
+    height: 3rem;
+    width: 6rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+header > a button:hover {
+    background: var(--color-2);
+    opacity: 75%;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
