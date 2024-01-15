@@ -56,6 +56,11 @@ function createDivBook() {
     div.appendChild(removeBtn);
     parentDiv.appendChild(div);
 
+    readBtn.addEventListener('click', () => {
+        if (readBtn.textContent === "Done read") readBtn.textContent = "Not read";
+        else if (readBtn.textContent === "Not read") readBtn.textContent = "Done read";
+    });
+
     removeBtn.addEventListener('click', () => {
         div.remove();
     });
