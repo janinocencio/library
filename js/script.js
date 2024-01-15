@@ -34,7 +34,11 @@ function createDivBook() {
     const pPages = document.createElement('p');
     const readBtn = document.createElement('button');
     const removeBtn = document.createElement('button');
+    
     div.classList.add('book');
+    readBtn.setAttribute('id', 'readBtn');
+    removeBtn.setAttribute('id', 'removeBtn');
+    
     readBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('type', 'button');
     removeBtn.textContent = "Remove";
