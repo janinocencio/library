@@ -46,7 +46,6 @@ function createDivBook() {
     pTitle.textContent = myLibrary[myLibrary.length - 1].title;
     pAuthor.textContent = myLibrary[myLibrary.length - 1].author;
     pPages.textContent = myLibrary[myLibrary.length - 1].pages;
-    console.log(myLibrary[myLibrary.length - 1].alreadyRead);
     if (myLibrary[myLibrary.length - 1].alreadyRead === true) readBtn.textContent = "Done read";
     if (myLibrary[myLibrary.length - 1].alreadyRead === false) readBtn.textContent = "Not read";
     
@@ -56,6 +55,10 @@ function createDivBook() {
     div.appendChild(readBtn);
     div.appendChild(removeBtn);
     parentDiv.appendChild(div);
+
+    removeBtn.addEventListener('click', () => {
+        div.remove();
+    });
 };
 
 const popupForm = document.querySelector('.popup');
@@ -77,4 +80,3 @@ submitBtn.addEventListener('click', function(event) {
     exitForm();
     formBook.reset();
 });
-
