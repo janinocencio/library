@@ -140,6 +140,7 @@ footer {
 
 .popup {
     position: absolute;
+    z-index: 9999;
     top: 20%;
     right: 25;
     display: flex;
@@ -147,10 +148,12 @@ footer {
     justify-content: space-evenly;
     width: 30rem;
     height: 30rem;
+    border-radius: 1rem;
     background: var(--color-2);
     padding: 2rem;
     line-height: 0;
     text-align: center;
+    scale: 0.2;
     visibility: hidden;
 }
 
@@ -187,4 +190,14 @@ footer {
     opacity: 75%;
     transition: 0.2s ease;
     cursor: pointer;
+}
+
+#disable {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: gray;
+    opacity: 25%;
+    z-index: 2;
+    visibility: hidden;
 }
