@@ -44,6 +44,18 @@ function toggleRead(pTitle, pAuthor, pPages, readBtn) {
     }
 };
 
+function removeBook(pTitle, pAuthor, pPages, div) {
+    const index = myLibrary.findIndex(function(Book) {
+        if (Book.title === pTitle.textContent && 
+            Book.author === pAuthor.textContent &&
+            Book.pages === pPages.textContent) {
+            return true;
+        }        
+    });
+    myLibrary.splice(index,1);
+    div.remove();
+}
+
 function createDivBook() {
     const parentDiv = document.querySelector('.books-container');
     const div = document.createElement('div');
@@ -79,7 +91,7 @@ function createDivBook() {
     });
 
     removeBtn.addEventListener('click', () => {
-        div.remove();
+        removeBook(pTitle, pAuthor, pPages, div);
     });
 };
 
