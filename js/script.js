@@ -26,6 +26,24 @@ function popForm() {
     disableHTML.style.visibility = 'visible';
 };
 
+function toggleRead(pTitle, pAuthor, pPages, readBtn) {
+    const index = myLibrary.findIndex(function(Book) {
+        if (Book.title === pTitle.textContent && 
+            Book.author === pAuthor.textContent &&
+            Book.pages === pPages.textContent) {
+            return true;
+        }        
+    });
+    
+    if (readBtn.textContent === "Done read") {
+        readBtn.textContent = "Not read";
+        myLibrary[index].alreadyRead = false;
+    }   else if (readBtn.textContent === "Not read") {
+        readBtn.textContent = "Done read";
+        myLibrary[index].alreadyRead = true;
+    }
+};
+
 function createDivBook() {
     const parentDiv = document.querySelector('.books-container');
     const div = document.createElement('div');
@@ -57,8 +75,7 @@ function createDivBook() {
     parentDiv.appendChild(div);
 
     readBtn.addEventListener('click', () => {
-        if (readBtn.textContent === "Done read") readBtn.textContent = "Not read";
-        else if (readBtn.textContent === "Not read") readBtn.textContent = "Done read";
+        toggleRead(pTitle, pAuthor, pPages, readBtn);
     });
 
     removeBtn.addEventListener('click', () => {
