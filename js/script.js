@@ -11,19 +11,19 @@ function addBookToLibrary(title, author, pages, alreadyRead) {
     myLibrary[myLibrary.length] = new Book(title, author, pages, alreadyRead); 
 };  
 
+function popForm() {
+    popupForm.style.transition = '0.3s ease';
+    popupForm.style.visibility = 'visible';
+    popupForm.style.scale = '1';
+    disableHTML.style.visibility = 'visible';
+};
+
 function exitForm() {
     popupForm.style.visibility = 'hidden';
     popupForm.style.transition = '0.3s ease';
     popupForm.style.scale = '0.1';
     disableHTML.style.visibility = 'hidden';
     disableHTML.style.transition = '0.3s ease';
-};
-
-function popForm() {
-    popupForm.style.transition = '0.3s ease';
-    popupForm.style.visibility = 'visible';
-    popupForm.style.scale = '1';
-    disableHTML.style.visibility = 'visible';
 };
 
 function toggleRead(pTitle, pAuthor, pPages, readBtn) {
@@ -65,17 +65,14 @@ function createDivBook() {
     const readBtn = document.createElement('button');
     const removeBtn = document.createElement('button');
     
-    div.classList.add('book');
-    readBtn.setAttribute('id', 'readBtn');
-    removeBtn.setAttribute('id', 'removeBtn');
-    
+    div.classList.add('book');   
     readBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('type', 'button');
-    removeBtn.textContent = "Remove";
 
     pTitle.textContent = myLibrary[myLibrary.length - 1].title;
     pAuthor.textContent = myLibrary[myLibrary.length - 1].author;
     pPages.textContent = myLibrary[myLibrary.length - 1].pages;
+    removeBtn.textContent = "Remove";
     if (myLibrary[myLibrary.length - 1].alreadyRead === true) readBtn.textContent = "Done read";
     if (myLibrary[myLibrary.length - 1].alreadyRead === false) readBtn.textContent = "Not read";
     
@@ -94,6 +91,8 @@ function createDivBook() {
         removeBook(pTitle, pAuthor, pPages, div);
     });
 };
+
+
 
 const popupForm = document.querySelector('.popup');
 const addBookBtn = document.querySelector('#addBook');
@@ -114,3 +113,6 @@ submitBtn.addEventListener('click', function(event) {
     exitForm();
     formBook.reset();
 });
+
+
+/*** Future Release: Add no-duplicate functionality ***/
